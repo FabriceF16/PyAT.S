@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+
+{% block main %}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+      <div class="row justify-content-center">
+        <div class="col-xl-7 col-lg-9 text-center">
+          <h1>pyAT.S</h1>
+          <h2>Analyse Technique avec l'environnement AT.S et Python</h2>
+        </div>
+      </div>
+       <br>
+
+
+      <div class="text-center">
+            <form action="{{ url_for('ats') }}" method="post">
+              <!--<input type="text" class="text-center" name="symbol">-->
+
+              <input type="text" name="symbol" class="text-center" id="symbol" placeholder="Symbole (ex. MC.PA)" required>
+       <br>
+              <input type="submit" class="btn-get-started scrollto" value="Lancer Grande Image">
+            </form>
+        <!--<a href="#about" class="btn-get-started scrollto">Lancer Grande Image</a>-->
+      </div>
+
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+          <div class="text-center">
+            {{ message }}
+          </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+
+{% endblock %}
